@@ -376,7 +376,7 @@
                     <div class="job-card">
                         <h3 class="text-xl font-semibold text-sky-400 mb-1">HONORS AND AWARDS</h3>
                         <ul class="list-disc list-inside text-gray-300/90 space-y-2">
-                            <li>SANS Cyber ICS/OT/SCADA Challenge Coin | Previous Board Member – Open Web Application Security Project (OWASP), Cloud Security Alliance (CSA) | Dale Carnegie - Outstanding performance award | General Motors Company - Hall of Fame - Bug Bounty program | Samsung - Hall of Fame - Bug Bounty program | Recognized by a High Value Entity [Redacted] Vulnerability Disclosed</li>
+                            <li>SANS Cyber ICS/OT/SCADA Challenge Coin | Previous Board Member – Open Web Application Security Project (OWASP), Cloud Security Alliance (CSA) | Dale Carnegie - Outstanding performance award | General Motors Company - Hall of Fames - Bug Bounty program | Samsung - Hall of Fame - Bug Bounty program | Recognized by a High Value Entity [Redacted] Vulnerability Disclosed</li>
                         </ul>
                     </div>
 
@@ -433,81 +433,83 @@
         });
     </script>
 
+    <!-- ======== BEGIN ANALYTICS SCRIPT (v5) ======== -->
     <script>
-        // Wait for the window to be fully loaded
+        // --- DEFINE PAGE-SPECIFIC AND SESSION-WIDE VARIABLES ---
+        
+        // 1. (NEW) SET A NAME FOR THIS PAGE
+        const PAGE_NAME = "resume"; // Set for resume.html
+        
+        // 2. Capture the exact start time
+        const startTime = new Date();
+        
+        // 3. Generate a simple unique ID for this session
+        const sessionId = Math.random().toString(36).substring(2, 15);
+        
+        // 4. This is the Google Script URL you provided
+        //    (Make sure this is the same one used on index.html)
+        const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbz3LLz0rggYnztvZdFZNBf5rU-OiXSDM8GAi6kZT7U9_91N5U5QhycRYdXXgz1o4rElSA/exec";
+
+        /***********************
+         * Helper: fetch geo/ip safely
+         ***********************/
+        async function fetchGeo() {
+            try {
+                const res = await fetch('https://ipapi.co/json/');
+                if (!res.ok) throw new Error('geo failed');
+                return await res.json();
+            } catch (e) {
+                return {
+                    ip: 'lookup_failed',
+                    city: 'lookup_failed',
+                    region: 'lookup_failed',
+                    country_name: 'lookup_failed',
+                    org: 'lookup_failed'
+                };
+            }
+        }
+
+        /***********************
+         * Helper: send initial data (on load)
+         ***********************/
+        async function sendInitialData(payloadObj) {
+            if (!SCRIPT_URL.startsWith("https://script.google.com/")) {
+                console.error("SCRIPT_URL is not set. Data not sent.");
+                return;
+            }
+            try {
+                await fetch(SCRIPT_URL, {
+                    method: 'POST',
+                    mode: 'cors',
+                    credentials: 'omit',
+                    headers: {
+                        'Content-Type': 'text/plain;charset=utf-8',
+                    },
+                    body: JSON.stringify(payloadObj)
+                });
+                console.log("Analytics view sent.");
+            } catch (err) {
+                console.error('Google Script error (initial data).', err);
+            }
+        }
+        
+        /***********************
+         * Main flow (on page load)
+         ***********************/
         window.onload = async () => {
-
-            /***********************
-             * Configuration
-             ***********************/
-            
-            // This is the Google Script URL you provided
-            const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxYCOFCsEicqDmioa-4TARXHzRW1puvSGGzTyEdpX-W9PffV5BV18oY5XwLram2JL7CkQ/exec";
-
-            /***********************
-             * Helper: fetch geo/ip safely
-             ***********************/
-            async function fetchGeo() {
-                try {
-                    const res = await fetch('https://ipapi.co/json/');
-                    if (!res.ok) throw new Error('geo failed');
-                    return await res.json();
-                } catch (e) {
-                    return {
-                        ip: 'lookup_failed',
-                        city: 'lookup_failed',
-                        region: 'lookup_failed',
-                        country_name: 'lookup_failed',
-                        org: 'lookup_failed'
-                    };
-                }
-            }
-
-            /***********************
-             * Helper: send to Google Script
-             ***********************/
-            async function sendToGoogleScript(payloadObj) {
-                if (!SCRIPT_URL.startsWith("https://script.google.com/")) {
-                    console.error("SCRIPT_URL is not set. Data not sent.");
-                    return;
-                }
-
-                try {
-                    await fetch(SCRIPT_URL, {
-                        method: 'POST',
-                        mode: 'cors',
-                        credentials: 'omit',
-                        headers: {
-                            'Content-Type': 'text/plain;charset=utf-8', // Use text/plain to avoid preflight
-                        },
-                        body: JSON.stringify(payloadObj)
-                    });
-                    console.log("Resume view analytics sent.");
-                } catch (err) {
-                    console.error('Google Script error.', err);
-                }
-            }
-
-            /***********************
-             * Main flow: Capture and Send Analytics
-             ***********************/
             try {
                 // 1. Get Geo/IP info
                 const geo = await fetchGeo();
                 
-                // 2. Get PST Timestamp (as requested)
+                // 2. Get PST Timestamp
                 const pstTimestamp = new Date().toLocaleString("en-US", {
                     timeZone: "America/Los_Angeles",
-                    year: 'numeric',
-                    month: '2-digit',
-                    day: '2-digit',
-                    hour: '2-digit',
-                    minute: '2-digit',
-                    second: '2-digit',
+                    year: 'numeric', month: '2-digit', day: '2-digit',
+                    hour: '2-digit', minute: '2-digit', second: '2-digit',
                     hour12: true
                 });
 
-                // 3. Assemble payload with all requested data
+                // 3. Assemble payload
                 const payload = {
                     timestamp_pst: pstTimestamp,
                     ip_address: geo.ip,
@@ -515,19 +517,80 @@
                     region: geo.region,
                     country: geo.country_name,
                     isp: geo.org,
-                    user_agent: navigator.userAgent
+                    user_agent: navigator.userAgent,
+                    session_id: sessionId,
+                    page: PAGE_NAME, // This will be "resume"
+                    referrer: document.referrer || 'direct' 
                 };
 
-                // 4. Send data to Google Sheet (fire and forget)
-                sendToGoogleScript(payload).catch((err) => {
+                // 4. Send initial data
+                sendInitialData(payload).catch((err) => {
                     console.error("Failed to send analytics:", err);
                 });
 
             } catch (err) {
                 console.error("Error capturing analytics:", err);
             }
+        };
 
-        }; // End of window.onload
+        /***********************
+         * Helper to format seconds
+         ***********************/
+        function formatDuration(totalSeconds) {
+            const hours = Math.floor(totalSeconds / 3600);
+            const minutes = Math.floor((totalSeconds % 3600) / 60);
+            const seconds = totalSeconds % 60;
+
+            // Pad seconds with a zero if needed
+            const paddedSeconds = seconds < 10 ? '0' + seconds : seconds;
+
+            return `${hours}h ${minutes}m ${paddedSeconds}s`;
+        }
+
+        /***********************
+         * Flow (on page leave)
+         ***********************/
+        
+        let durationSent = false;
+
+        function sendDuration() {
+            if (durationSent) return; 
+            
+            try {
+                const endTime = new Date();
+                const durationInSeconds = Math.round((endTime - startTime) / 1000);
+                
+                if (durationInSeconds < 2) return; // Don't log brief bounces
+
+                // Format the duration string (e.g., "0h 1m 32s")
+                const formattedDuration = formatDuration(durationInSeconds);
+
+                // Send the formatted string
+                const durationPayload = {
+                    session_id: sessionId,
+                    duration_sec: formattedDuration // Key is same, value is new string
+                };
+                
+                const blob = new Blob([JSON.stringify(durationPayload)], { type: 'text/plain;charset=utf-8' });
+                navigator.sendBeacon(SCRIPT_URL, blob);
+                
+                durationSent = true; 
+                console.log(`Session ended. Duration: ${formattedDuration}`);
+
+            } catch (err) {
+                console.error("Error sending duration:", err);
+            }
+        }
+
+        // --- Event Listeners for Page Leave ---
+        window.addEventListener('beforeunload', sendDuration);
+        document.addEventListener('visibilitychange', () => {
+            if (document.visibilityState === 'hidden') {
+                sendDuration();
+            }
+        });
     </script>
+    <!-- ======== END OF SCRIPT BLOCK ======== -->
+
     </body>
 </html>

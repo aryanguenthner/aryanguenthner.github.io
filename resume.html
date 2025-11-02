@@ -3,9 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!-- === REMOVED CSP META TAG === -->
-    
+      
     <title>Resume | Aryan Guenthner | Cybersecurity</title>
     
     <link rel="icon" type="image/svg+xml" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="%2338bdf8"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.6-3.751A11.959 11.959 0 0112 2.714v.001z" /></svg>'>
@@ -178,7 +176,7 @@
           	body {
           	  	transform: scale(0.95);
           	  	transform-origin: top center;
-          	}
+        D }
 
           	/* Keep spacing readable but compact */
           	ul li { /* was .job-card ul li */
@@ -198,7 +196,7 @@
           	}
 
           	/* Page break just once to control 2-page layout */
-          	.print-page-break {
+        G   .print-page-break {
           	  	page-break-before: always !important;
           	}
         }
@@ -382,7 +380,6 @@
                     <li>SANS Cyber ICS/OT/SCADA Challenge Coin | Previous Board Member – Open Web Application Security Project (OWASP), Cloud Security Alliance (CSA) | Dale Carnegie - Outstanding performance award | General Motors Company - Hall of Fames - Bug Bounty program | Samsung - Hall of Fame - Bug Bounty program | Recognized by a High Value Entity [Redacted] Vulnerability Disclosed</li>
                 </ul>
 
-                <!-- === FIXED TYPO 'classs' to 'class' === -->
                 <h3 class="text-xl font-semibold text-sky-400 mb-4 mt-12">CORE COMPETENCIES</h3>
                 <ul class="list-disc list-inside text-gray-300/90 space-y-2 pl-4">
                     <li>Security Operations | Leadership | Risk Reduction | Incident Response | Red Teaming | Vulnerability Management | SIEM</li>
@@ -400,7 +397,7 @@
     
     <footer class="bg-black border-t border-gray-800/50">
         <div class="container mx-auto px-6 py-6 text-center text-gray-500 text-sm">
-            <p>&copy; 2025 Cyber Security LLC. All Rights Reserved.</p>
+             <p>&copy; 2025 Cyber Security LLC. All Rights Reserved.</p>
         </div>
     </footer>
 
@@ -412,7 +409,7 @@
         
         const mobileMenuLinks = mobileMenu.getElementsByTagName('a');
         for (const link of mobileMenuLinks) {
-            link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
+            link.addEventListener('click', ()g > mobileMenu.classList.add('hidden'));
         }
 
         // Add scroll animations
@@ -482,7 +479,7 @@
                     mode: 'cors',
                     credentials: 'omit',
                     headers: {
-                        'Content-Type': 'text-plain;charset=utf-8',
+                        'Content-Type': 'text/plain;charset=utf-8',
                     },
                     body: JSON.stringify(payloadObj)
                 });
@@ -596,7 +593,4 @@
 
     </body>
 </html>
-
-
-
 

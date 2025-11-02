@@ -3,6 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- === ADDED/MODIFIED CSP (Fixed to be a single line) === -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://ipapi.co https://script.google.com https://*.googleusercontent.com;">
+    
     <title>Resume | Aryan Guenthner | Cybersecurity</title>
     
     <link rel="icon" type="image/svg+xml" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="%2338bdf8"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.6-3.751A11.959 11.959 0 0112 2.714v.001z" /></svg>'>
@@ -227,12 +231,13 @@
     </header>
 
     <main>
-        <section id="hero-section" class="py-28 md:py-40 text-center gradient-bg relative overflow-hidden">
-            <div class="container mx-auto px-6 relative z-10 animated-slide">
+        <!-- === MODIFIED SECTION === -->
+        <section id="hero-section" class="py-16 md:py-20 gradient-bg relative overflow-hidden"> <!-- Removed text-center -->
+            <div class="container mx-auto px-6 max-w-5xl relative z-10 animated-slide"> <!-- Added max-w-5xl -->
                 
-                <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight mb-4 flex items-center justify-center flex-wrap">
+                <h1 class="text-3xl md:text-5xl lg:text-6xl font-bold leading-tight mb-4 flex items-center flex-wrap"> <!-- Removed justify-center -->
                     <span class="hero-gradient-text">Aryan Guenthner, OSCP</span>
-                    <svg class="h-8 w-8 md:h-10 md:w-10 lg:h-12 lg:w-12 text-sky-400 ml-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                    <svg class="h-7 w-7 md:h-9 md:w-9 lg:h-10 lg:w-10 text-sky-400 ml-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
                       <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.6-3.751A11.959 11.959 0 0112 2.714v.001z" />
                     </svg>
                 </h1>
@@ -378,6 +383,7 @@
                     <li>SANS Cyber ICS/OT/SCADA Challenge Coin | Previous Board Member – Open Web Application Security Project (OWASP), Cloud Security Alliance (CSA) | Dale Carnegie - Outstanding performance award | General Motors Company - Hall of Fames - Bug Bounty program | Samsung - Hall of Fame - Bug Bounty program | Recognized by a High Value Entity [Redacted] Vulnerability Disclosed</li>
                 </ul>
 
+                <!-- === FIXED TYPO 'classs' to 'class' === -->
                 <h3 class="text-xl font-semibold text-sky-400 mb-4 mt-12">CORE COMPETENCIES</h3>
                 <ul class="list-disc list-inside text-gray-300/90 space-y-2 pl-4">
                     <li>Security Operations | Leadership | Risk Reduction | Incident Response | Red Teaming | Vulnerability Management | SIEM</li>
@@ -448,7 +454,8 @@
          ***********************/
         async function fetchGeo() {
             try {
-                const res = await fetch('https://ipapi.co.com/json/');
+                // === CORRECTED URL ===
+                const res = await fetch('https://ipapi.co/json/');
                 if (!res.ok) throw new Error('geo failed');
                 return await res.json();
             } catch (e) {
@@ -476,7 +483,7 @@
                     mode: 'cors',
                     credentials: 'omit',
                     headers: {
-                        'Content-Type': 'text/plain;charset=utf-8',
+                        'Content-Type': 'text-plain;charset=utf-8',
                     },
                     body: JSON.stringify(payloadObj)
                 });
@@ -510,13 +517,16 @@
                     region: geo.region,
                     country: geo.country_name,
                     isp: geo.org,
-                    user_agent: navigator.userAgent,
                     session_id: sessionId,
-                    page: PAGE_NAME, // This will be "resume"
-                    referrer: document.referrer || 'direct' 
+                    page: PAGE_NAME // This will be "resume"
                 };
 
-                // 4. Send initial data
+                // 4. Add sanitized User-Agent and Referrer (as requested)
+                payload.user_agent = navigator.userAgent.substring(0, 512).replace(/[^\w .;:()/_-]/g, '');
+                payload.referrer = (document.referrer || 'direct').substring(0, 256);
+
+
+                // 5. Send initial data
                 sendInitialData(payload).catch((err) => {
                     console.error("Failed to send analytics:", err);
                 });

@@ -3,7 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      
+    
+    <!-- === OG Tags for SMS/Social Media Previews === -->
+    <meta property="og:title" content="Resume | Aryan Guenthner | Cybersecurity">
+    <meta property="og:description" content="OSCP certified cybersecurity professional with over a decade of experience in SOC, incident response, threat vulnerability management, and Red Team penetration testing.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://aryanguenthner.github.io/resume.html">
+    <!-- og:image must be a direct URL to a .png or .jpg file (data-uri SVGs are not supported) -->
+    <meta property="og:image" content=""> 
+    
     <title>Resume | Aryan Guenthner | Cybersecurity</title>
     
     <link rel="icon" type="image/svg+xml" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="%2338bdf8"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.6-3.751A11.959 11.959 0 0112 2.714v.001z" /></svg>'>
@@ -196,7 +204,7 @@
           	}
 
           	/* Page break just once to control 2-page layout */
-        G   .print-page-break {
+        G    .print-page-break {
           	  	page-break-before: always !important;
           	}
         }
@@ -229,10 +237,11 @@
 
     <main>
         <!-- === MODIFIED SECTION === -->
-        <section id="hero-section" class="py-16 md:py-20 gradient-bg relative overflow-hidden"> <!-- Removed text-center -->
-            <div class="container mx-auto px-6 max-w-5xl relative z-10 animated-slide"> <!-- Added max-w-5xl -->
+        <section id="hero-section" class="py-16 md:py-20 gradient-bg relative overflow-hidden">
+            <div class="container mx-auto px-6 max-w-5xl relative z-10 animated-slide">
                 
-                <h1 class="text-3xl md:text-5xl lg:text-6xl font-bold leading-tight mb-4 flex items-center flex-wrap"> <!-- Removed justify-center -->
+                <!-- === MODIFIED H1 (Mobile font size smaller, flex-nowrap) === -->
+                <h1 class="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-bold leading-tight mb-4 flex items-center flex-nowrap">
                     <span class="hero-gradient-text">Aryan Guenthner, OSCP</span>
                     <svg class="h-7 w-7 md:h-9 md:w-9 lg:h-10 lg:w-10 text-sky-400 ml-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
                       <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.6-3.751A11.959 11.959 0 0112 2.714v.001z" />
@@ -252,7 +261,6 @@
                     A results-driven, OSCP certified cybersecurity professional with over a decade of experience. Background and experience in security operations (SOC), incident response, threat vulnerability management, and Red Team penetration testing. Proven success protecting critical infrastructure for globally recognized organizations, including Boeing, Northrop Grumman, Disney, and University of Southern California, Formerly held a U.S. Government Top Secret Clearance.
                 </p>
                 
-                <!-- === MODIFICATION: Converted to h3 and removed card === -->
                 <h3 class="text-xl font-semibold text-sky-400 mb-4 mt-12">TECHNICAL SKILLS</h3>
                 <ul class="list-disc list-inside text-gray-300/90 space-y-2 pl-4">
                     <li>Kali Linux, Metasploit, SIEM, Tenable, CrowdStrike, Proofpoint, Rapid7 InsightVM, ZeroFox, Nozomi, BurpSuite, Acunetix, Nmap, Nikto, SQLMap, Armis, Asimily to name a few.</li>
@@ -261,7 +269,6 @@
 
                 <h2 class="text-2xl md:text-3xl font-bold text-white mb-4 mt-12">EXPERIENCE</h2>
                 
-                <!-- === MODIFICATION: Removed all job-cards === -->
                 <div class="space-y-12 mt-8">
                     <!-- Job 1 -->
                     <div>
@@ -409,7 +416,7 @@
         
         const mobileMenuLinks = mobileMenu.getElementsByTagName('a');
         for (const link of mobileMenuLinks) {
-            link.addEventListener('click', ()g > mobileMenu.classList.add('hidden'));
+            link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
         }
 
         // Add scroll animations
@@ -443,8 +450,7 @@
         
         // 4. This is the Google Script URL you provided
         //    (Make sure this is the same one used on index.html)
-        const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbykQsdF_F7bAyCCBjogiB6LGa3Sp-Wvn8kiJ8l6WgJNvezqQ4LK4js_aqL5sObkneizGw/exec";
-        
+        const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbz3LLz0rggYnztvZdFZNBf5rU-OiXSDM8GAi6kZT7U9_91N5U5QhycRYdXXgz1o4rElSA/exec";
 
         /***********************
          * Helper: fetch geo/ip safely
@@ -480,7 +486,7 @@
                     mode: 'cors',
                     credentials: 'omit',
                     headers: {
-                        'Content-Type': 'text/plain;charset=utf-8',
+                        'Content-Type': 'text-plain;charset=utf-8',
                     },
                     body: JSON.stringify(payloadObj)
                 });

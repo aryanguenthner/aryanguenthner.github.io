@@ -27,12 +27,7 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
-        .job-card {
-            background-color: rgba(17, 24, 39, 0.5);
-            border: 1px solid rgba(55, 65, 81, 0.5);
-            padding: 2rem;
-            border-radius: 0.75rem;
-        }
+        /* --- .job-card class removed --- */
         @keyframes fadeIn {
             from { opacity: 0; }
             to { opacity: 1; }
@@ -86,11 +81,7 @@
                 margin: 0 !important;
             }
             
-            /* Reset card styling */
-            .job-card {
-                border: none !important;
-                padding: 0.5rem 0 !important; /* Add a little space */
-            }
+            /* --- .job-card class removed --- */
 
             /* Ensure list bullets are black */
             ul li::marker {
@@ -98,12 +89,17 @@
             }
 
             /* Control page breaks */
-            h2, h3, .job-card {
+            h2, h3 { /* removed .job-card */
                 page-break-inside: avoid;
             }
             
             h2 {
                 padding-top: 1rem; /* Add some space before H2s */
+            }
+            
+            /* Add padding *back* to the list in print mode */
+            ul { /* was .job-card ul */
+                padding-left: 1rem !important;
             }
 
             /* Remove animations */
@@ -171,37 +167,37 @@
             }
 
             /* Balance content across exactly two printed pages */
-            html, body {
-                height: 100%;
-            }
+          	html, body {
+          	height: 100%;
+          	}
 
-            /* Force scaling to fit exactly two pages */
-            body {
-                transform: scale(0.95);
-                transform-origin: top center;
-            }
+          	/* Force scaling to fit exactly two pages */
+          	body {
+          	  	transform: scale(0.95);
+          	  	transform-origin: top center;
+          	}
 
-            /* Keep spacing readable but compact */
-            .job-card ul li {
-                margin-bottom: 0.1rem !important;
-            }
+          	/* Keep spacing readable but compact */
+          	ul li { /* was .job-card ul li */
+          	  	margin-bottom: 0.1rem !important;
+          	}
 
-            /* Tweak section padding for tighter layout */
-            section {
-                padding-top: 0.5rem !important;
-                padding-bottom: 0.5rem !important;
-            }
+          	/* Tweak section padding for tighter layout */
+          	section {
+          	  	padding-top: 0.5rem !important;
+          	  	padding-bottom: 0.5rem !important;
+          	}
 
-            /* Ensure each page fills letter size cleanly */
-            @page {
-                size: letter;
-                margin: 0.6in 0.7in;
-            }
+          	/* Ensure each page fills letter size cleanly */
+          	@page {
+          	  	size: letter;
+          	  	margin: 0.6in 0.7in;
+          	}
 
-            /* Page break just once to control 2-page layout */
-            .print-page-break {
-                page-break-before: always !important;
-            }
+          	/* Page break just once to control 2-page layout */
+          	.print-page-break {
+          	  	page-break-before: always !important;
+          	}
         }
     </style>
 </head>
@@ -254,22 +250,22 @@
                     A results-driven, OSCP certified cybersecurity professional with over a decade of experience. Background and experience in security operations (SOC), incident response, threat vulnerability management, and Red Team penetration testing. Proven success protecting critical infrastructure for globally recognized organizations, including Boeing, Northrop Grumman, Disney, and University of Southern California, Formerly held a U.S. Government Top Secret Clearance.
                 </p>
                 
-                <div class="space-y-12 mt-12">
-                     <div class="job-card">
-                        <h3 class="text-xl font-semibold text-sky-400 mb-1">TECHNICAL SKILLS</h3>
-                        <ul class="list-disc list-inside text-gray-300/90 space-y-2">
-                            <li>Kali Linux, Metasploit, SIEM, Tenable, CrowdStrike, Proofpoint, Rapid7 InsightVM, ZeroFox, Nozomi, BurpSuite, Acunetix, Nmap, Nikto, SQLMap, Armis, Asimily to name a few.</li>
-                        </ul>
-                    </div>
-                </div>
-                
+                <!-- === MODIFICATION: Converted to h3 and removed card === -->
+                <h3 class="text-xl font-semibold text-sky-400 mb-4 mt-12">TECHNICAL SKILLS</h3>
+                <ul class="list-disc list-inside text-gray-300/90 space-y-2 pl-4">
+                    <li>Kali Linux, Metasploit, SIEM, Tenable, CrowdStrike, Proofpoint, Rapid7 InsightVM, ZeroFox, Nozomi, BurpSuite, Acunetix, Nmap, Nikto, SQLMap, Armis, Asimily to name a few.</li>
+                </ul>
+
+
                 <h2 class="text-3xl md:text-4xl font-bold text-white mb-4 mt-12">EXPERIENCE</h2>
                 
+                <!-- === MODIFICATION: Removed all job-cards === -->
                 <div class="space-y-12 mt-8">
-                    <div class="job-card">
+                    <!-- Job 1 -->
+                    <div>
                         <h3 class="text-xl font-semibold text-sky-400 mb-1">Manager, Cyber Security Operations</h3>
                         <p class="text-gray-400 mb-4">Hoag Memorial Presbyterian Hospital | October 2023 – August 2025</p>
-                        <ul class="list-disc list-inside text-gray-300/90 space-y-2">
+                        <ul class="list-disc list-inside text-gray-300/90 space-y-2 pl-4">
                             <li>Lead Cyber Security Operations (SOC), MSSP, attack surface, vulnerability management, incident response</li>
                             <li>Streamlined processes, implemented security tools and refinement</li>
                             <li>Built key relationships with business units including Bio Medical and reporting to stakeholders</li>
@@ -278,10 +274,11 @@
                         </ul>
                     </div>
 
-                    <div class="job-card">
+                    <!-- Job 2 -->
+                    <div>
                         <h3 class="text-xl font-semibold text-sky-400 mb-1">Sr. Cybersecurity Tech Specialist</h3>
                         <p class="text-gray-400 mb-4">Disney Parks & Resorts | February 2022 – October 2023</p>
-                        <ul class="list-disc list-inside text-gray-300/90 space-y-2">
+                        <ul class="list-disc list-inside text-gray-300/90 space-y-2 pl-4">
                             <li>Performed Threat Hunting proactively across systems, networks, and infrastructure for threats</li>
                             <li>Monitored attack surface, threat feeds, conducted OSINT research, tuned IDS alarms</li>
                             <li>Conducted Risk and Security Assessments for attractions</li>
@@ -290,21 +287,23 @@
                         </ul>
                     </div>
 
-                    <div class="job-card">
+                    <!-- Job 3 -->
+                    <div>
                         <h3 class="text-xl font-semibold text-sky-400 mb-1">Lead, Vulnerability Management</h3>
                         <p class="text-gray-400 mb-4">University of Southern California (USC) | June 2021 – February 2022</p>
-                        <ul class="list-disc list-inside text-gray-300/90 space-y-2">
+                        <ul class="list-disc list-inside text-gray-300/90 space-y-2 pl-4">
                             <li>Ensured continuous attack surface vulnerability life-cycle management within the university, detecting, monitoring, reporting, and assessing impact on vulnerability-related data from internal/external sources</li>
                             <li>Developed and maintained strong partnerships to drive end-to-end vulnerability remediation, ensure consistent customer experience, broaden awareness and use of services</li>
-                            <li>Evaluated, recommended, implementation, and troubleshooting of vulnerability management tools</li>
+                            <li>EvaluATED, recommended, implementation, and troubleshooting of vulnerability management tools</li>
                             <li>Supported Security Engineering, SOC and GRC compliance and risk management activities, recommending security controls and corrective actions to mitigate vulnerability risks</li>
                         </ul>
                     </div>
                     
-                    <div class="job-card">
+                    <!-- Job 4 -->
+                    <div>
                         <h3 class="text-xl font-semibold text-sky-400 mb-1">Cybersecurity Advisor - Managed Application Security & Detection Response</h3>
                         <p class="text-gray-400 mb-4">Rapid7 LLC | August 2020 – June 2021</p>
-                        <ul class="list-disc list-inside text-gray-300/90 space-y-2">
+                        <ul class="list-disc list-inside text-gray-300/90 space-y-2 pl-4">
                             <li>Provided subject matter expertise and advisement to clients for industry attack trends and defenses</li>
                             <li>Built strong advisory relationships with customers and continuously exceeding client expectations</li>
                             <li>Proactive threat awareness reporting, and regular touch-points to discuss security initiatives</li>
@@ -313,10 +312,11 @@
                         </ul>
                     </div>
                     
-                    <div class="job-card print-page-break">
+                    <!-- Job 5 -->
+                    <div class="print-page-break"> <!-- Keep print break on the wrapper -->
                         <h3 class="text-xl font-semibold text-sky-400 mb-1">Lead, Threat Hunter Security Operations</h3>
                         <p class="text-gray-400 mb-4">The Walt Disney Studios via KFORCE | February 2019 – April 2020</p>
-                        <ul class="list-disc list-inside text-gray-300/90 space-y-2">
+                        <ul class="list-disc list-inside text-gray-300/90 space-y-2 pl-4">
                             <li>Working as a contractor, Partnered with movie studios to identify threats, manage attack surface risks</li>
                             <li>Conducted incident response and threat hunting proactively using manual and automated techniques to monitor alerts and detect/react to security incidents</li>
                             <li>Build and maintain relationships with all studio technical teams and key operational contacts</li>
@@ -325,10 +325,11 @@
                         </ul>
                     </div>
                     
-                    <div class="job-card">
+                    <!-- Job 6 -->
+                    <div>
                         <h3 class="text-xl font-semibold text-sky-400 mb-1">Manager, Web Application Security</h3>
                         <p class="text-gray-400 mb-4">KPMG US LLP | May 2018 – February 2019</p>
-                        <ul class="list-disc list-inside text-gray-300/90 space-y-2">
+                        <ul class="list-disc list-inside text-gray-300/90 space-y-2 pl-4">
                             <li>Conducted web application security testing on internal and external assets</li>
                             <li>Provided support on internal penetration testing process and tools documentation</li>
                             <li>Oversee and perform Quality Assurance / Quality Checks on penetration testing done by 3rd party vendors</li>
@@ -336,10 +337,11 @@
                         </ul>
                     </div>
 
-                    <div class="job-card">
+                    <!-- Job 7 -->
+                    <div>
                         <h3 class="text-xl font-semibold text-sky-400 mb-1">Penetration Tester - Red Team</h3>
                         <p class="text-gray-400 mb-4">Northrop Grumman | October 2016 – May 2018</p>
-                        <ul class="list-disc list-inside text-gray-300/90 space-y-2">
+                        <ul class="list-disc list-inside text-gray-300/90 space-y-2 pl-4">
                             <li>Performed Red Team operations in closed areas and unclassified environments</li>
                             <li>Conducted network Penetration testing on Internal and External attack surfaces</li>
                             <li>Conducted Information gathering using OSINT and various enumeration of targets</li>
@@ -348,10 +350,11 @@
                         </ul>
                     </div>
                     
-                    <div class="job-card">
+                    <!-- Job 8 -->
+                    <div>
                         <h3 class="text-xl font-semibold text-sky-400 mb-1">Penetration Tester - Red Team</h3>
                         <p class="text-gray-400 mb-4">The Walt Disney Company | August 2014 – October 2016</p>
-                        <ul class="list-disc list-inside text-gray-300/90 space-y-2">
+                        <ul class="list-disc list-inside text-gray-300/90 space-y-2 pl-4">
                             <li>Red Team engagements, brand protection, external attack surface, and penetration testing</li>
                             <li>Used various penetration testing tools BurpSuite Pro, HP Fortify for Source-Code, Kali and Metasploit</li>
                             <li>Verify the remediation of penetration testing findings from start to finish of assessments</li>
@@ -362,38 +365,28 @@
                     </div>
                     
                 </div>
+                
+                <h3 class="text-xl font-semibold text-sky-400 mb-4 mt-12">EDUCATION AND CERTIFICATIONS</h3>
+                <ul class="list-disc list-inside text-gray-300/90 space-y-2 pl-4">
+                    <li>Offensive Security Certified Professional, (OSCP) Certification</li>
+                    <li>California State University Fullerton - Computer Forensics Certificate Program</li>
+                    <li>Kaplan University - CISSP Training, Information Security Certificate Program</li>
+                </ul>
+                
+                <h3 class="text-xl font-semibold text-sky-400 mb-4 mt-12">HONORS AND AWARDS</h3>
+                <ul class="list-disc list-inside text-gray-300/90 space-y-2 pl-4">
+                    <li>SANS Cyber ICS/OT/SCADA Challenge Coin | Previous Board Member – Open Web Application Security Project (OWASP), Cloud Security Alliance (CSA) | Dale Carnegie - Outstanding performance award | General Motors Company - Hall of Fames - Bug Bounty program | Samsung - Hall of Fame - Bug Bounty program | Recognized by a High Value Entity [Redacted] Vulnerability Disclosed</li>
+                </ul>
 
-                <div class="space-y-12 mt-12">
-                    <div class="job-card">
-                        <h3 class="text-xl font-semibold text-sky-400 mb-1">EDUCATION AND CERTIFICATIONS</h3>
-                        <ul class="list-disc list-inside text-gray-300/90 space-y-2">
-                            <li>Offensive Security Certified Professional, (OSCP) Certification</li>
-                            <li>California State University Fullerton - Computer Forensics Certificate Program</li>
-                            <li>Kaplan University - CISSP Training, Information Security Certificate Program</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="job-card">
-                        <h3 class="text-xl font-semibold text-sky-400 mb-1">HONORS AND AWARDS</h3>
-                        <ul class="list-disc list-inside text-gray-300/90 space-y-2">
-                            <li>SANS Cyber ICS/OT/SCADA Challenge Coin | Previous Board Member – Open Web Application Security Project (OWASP), Cloud Security Alliance (CSA) | Dale Carnegie - Outstanding performance award | General Motors Company - Hall of Fames - Bug Bounty program | Samsung - Hall of Fame - Bug Bounty program | Recognized by a High Value Entity [Redacted] Vulnerability Disclosed</li>
-                        </ul>
-                    </div>
+                <h3 class="text-xl font-semibold text-sky-400 mb-4 mt-12">CORE COMPETENCIES</h3>
+                <ul class="list-disc list-inside text-gray-300/90 space-y-2 pl-4">
+                    <li>Security Operations | Leadership | Risk Reduction | Incident Response | Red Teaming | Vulnerability Management | SIEM</li>
+                </ul>
 
-                    <div class="job-card">
-                        <h3 class="text-xl font-semibold text-sky-400 mb-1">Core Competencies</h3>
-                        <ul class="list-disc list-inside text-gray-300/9D space-y-2">
-                            <li>Security Operations | Leadership | Risk Reduction | Incident Response | Red Teaming | Vulnerability Management | SIEM</li>
-                        </ul>
-                    </div>
-
-                    <div class="job-card">
-                        <h3 class="text-xl font-semibold text-sky-400 mb-1">Cyber Projects</h3>
-                        <ul class="list-disc list-inside text-gray-300/90 space-y-2">
-                            <li>Cyber Threat Intelligence for Dark Deep Web Research of Ransomware Gangs.</li>
-                        </ul>
-                    </div>
-                </div>
+                <h3 class="text-xl font-semibold text-sky-400 mb-4 mt-12">CYBER PROJECTS</h3>
+                <ul class="list-disc list-inside text-gray-300/90 space-y-2 pl-4">
+                    <li>Cyber Threat Intelligence for Dark Deep Web Research of Ransomware Gangs.</li>
+                </ul>
 
             </div>
         </section>
@@ -446,16 +439,16 @@
         // 3. Generate a simple unique ID for this session
         const sessionId = Math.random().toString(36).substring(2, 15);
         
-        // 4. This is the Google AppScript URL you provided
+        // 4. This is the Google Script URL you provided
         //    (Make sure this is the same one used on index.html)
-        const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbykQsdF_F7bAyCCBjogiB6LGa3Sp-Wvn8kiJ8l6WgJNvezqQ4LK4js_aqL5sObkneizGw/exec";
+        const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbz3LLz0rggYnztvZdFZNBf5rU-OiXSDM8GAi6kZT7U9_91N5U5QhycRYdXXgz1o4rElSA/exec";
 
         /***********************
          * Helper: fetch geo/ip safely
          ***********************/
         async function fetchGeo() {
             try {
-                const res = await fetch('https://ipapi.co/json/');
+                const res = await fetch('https://ipapi.co.com/json/');
                 if (!res.ok) throw new Error('geo failed');
                 return await res.json();
             } catch (e) {
@@ -594,3 +587,5 @@
 
     </body>
 </html>
+
+

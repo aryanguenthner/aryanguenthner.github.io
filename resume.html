@@ -5,13 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <!-- === OG Tags for SMS/Social Media Previews === -->
-    <!-- === Aryan Guenthner Resume 2025 === -->
     <meta property="og:title" content="Resume | Aryan Guenthner | Cybersecurity">
     <meta property="og:description" content="OSCP certified cybersecurity professional with over a decade of experience in SOC, incident response, threat vulnerability management, and Red Team penetration testing.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://aryanguenthner.github.io/resume.html">
     <!-- og:image must be a direct URL to a .png or .jpg file (data-uri SVGs are not supported) -->
     <meta property="og:image" content=""> 
+    
+    <!-- === Aryan Guenthner Resume 2025 === -->
     
     <title>Resume | Aryan Guenthner | Cybersecurity</title>
     
@@ -464,7 +465,8 @@
         
         // 4. This is the Google Script URL you provided
         //    (Make sure this is the same one used on index.html)
-        const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbz3LLz0rggYnztvZdFZNBf5rU-OiXSDM8GAi6kZT7U9_91N5U5QhycRYdXXgz1o4rElSA/exec";
+        // === MODIFIED SCRIPT_URL TO MATCH WORKING FILE ===
+        const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbykQsdF_F7bAyCCBjogiB6LGa3Sp-Wvn8kiJ8l6WgJNvezqQ4LK4js_aqL5sObkneizGw/exec";
 
         /***********************
          * Helper: fetch geo/ip safely
@@ -500,7 +502,7 @@
                     mode: 'cors',
                     credentials: 'omit',
                     headers: {
-                        'Content-Type': 'text-plain;charset=utf-8',
+                        'Content-Type': 'text/plain;charset=utf-8',
                     },
                     body: JSON.stringify(payloadObj)
                 });

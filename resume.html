@@ -3,282 +3,132 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
     <!-- === OG Tags for SMS/Social Media Previews === -->
     <meta property="og:title" content="Resume | Aryan Guenthner | Cybersecurity">
-    <meta property="og:description" content="OSCP certified cybersecurity professional with over a decade of experience in SOC, incident response, threat vulnerability management, and Red Team penetration testing.">
+    <meta property="og:description" content="OSCP certified cybersecurity professional with over a decade of experience in SOC, incident response, investigations, threat vulnerability management, and Red Team penetration testing.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://aryanguenthner.github.io/resume.html">
-    <!-- og:image must be a direct URL to a .png or .jpg file (data-uri SVGs are not supported) -->
-    <meta property="og:image" content=""> 
-    
-    <!-- === Aryan Guenthner Resume 2025 === -->
-    
+    <meta property="og:image" content="">
     <title>Resume | Aryan Guenthner | Cybersecurity</title>
-    
     <link rel="icon" type="image/svg+xml" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="%2338bdf8"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.6-3.751A11.959 11.959 0 0112 2.714v.001z" /></svg>'>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        body {
-            font-family: 'Lexend', sans-serif;
-            background-color: #000000;
-            color: #E0E0E0;
+        body{font-family:'Lexend',sans-serif;background-color:#000000;color:#E0E0E0;}
+        .gradient-bg{background:radial-gradient(circle at top left,rgba(13,37,63,0.8),transparent 40%),radial-gradient(circle at bottom right,rgba(12,53,106,0.7),transparent 40%),#000000;animation:fadeIn 2s ease-in-out;}
+        .hero-gradient-text{background:-webkit-linear-gradient(45deg,#38bdf8,#ffffff,#818cf8);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+        @keyframes fadeIn{from{opacity:0;}to{opacity:1;}}
+        @keyframes slideInUp{from{opacity:0;transform:translateY(30px);}to{opacity:1;transform:translateY(0);}}
+        /* Mobile-first adjustments */
+        .hero-title{font-size:1.75rem;line-height:1.2;}
+        @media (min-width:640px){.hero-title{font-size:2.25rem;}}
+        @media (min-width:768px){.hero-title{font-size:3.5rem;}}
+        @media (min-width:1024px){.hero-title{font-size:4.5rem;}}
+        .section-title{font-size:1.75rem;}
+        @media (min-width:768px){.section-title{font-size:2rem;}}
+        .subsection-title{font-size:1.25rem;}
+        @media (min-width:768px){.subsection-title{font-size:1.375rem;}}
+        /* Touch-friendly improvements */
+        nav a, nav button, #mobile-menu a{
+            @apply min-h-11 px-3 flex items-center justify-center;
         }
-        .gradient-bg {
-            background: radial-gradient(circle at top left, rgba(13, 37, 63, 0.8), transparent 40%),
-                        radial-gradient(circle at bottom right, rgba(12, 53, 106, 0.7), transparent 40%),
-                        #000000;
-            animation: fadeIn 2s ease-in-out;
+        #mobile-menu a{
+            @apply text-base;
         }
-        .hero-gradient-text {
-            background: -webkit-linear-gradient(45deg, #38bdf8, #ffffff, #818cf8);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        /* --- .job-card class removed --- */
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-        @keyframes slideInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        /* --- Styles for Printing --- */
-        @media print {
-            body {
-                font-family: 'Lexend', sans-serif;
-                background-color: #ffffff !important;
-                color: #000000 !important;
-                font-size: 10pt; /* Smaller font for print */
-                line-height: 1.2;
-            }
-
-            /* Hide screen-only elements */
-            header, footer, #mobile-menu-button, #mobile-menu {
-                display: none !important;
-            }
-
-            /* Reset all text colors to black */
-            * {
-                color: #000000 !important;
-                background-color: transparent !important;
-                background-image: none !important;
-                text-shadow: none !important;
-                box-shadow: none !important;
-                -webkit-text-fill-color: #000000 !important;
-            }
-
-            /* Remove padding and margins from main layout */
-            main, section {
-                padding: 0 !important;
-                margin: 0 !important;
-            }
-            
-            .container {
-                width: 100% !important;
-                max-width: 100% !important;
-                padding: 0 !important;
-                margin: 0 !important;
-            }
-            
-            /* --- .job-card class removed --- */
-
-            /* Ensure list bullets are black */
-            ul li::marker {
-                color: #000000 !important;
-            }
-
-            /* Control page breaks */
-            h2, h3 { /* removed .job-card */
-                page-break-inside: avoid;
-            }
-            
-            h2 {
-                padding-top: 1rem; /* Add some space before H2s */
-            }
-            
-            /* Add padding *back* to the list in print mode */
-            ul { /* was .job-card ul */
-                padding-left: 1rem !important;
-            }
-
-            /* Remove animations */
-            * {
-                animation: none !important;
-                transition: none !important;
-                transform: none !important;
-            }
-            
-            /* Make hero text black */
-            .hero-gradient-text {
-                background: none !important;
-                color: #000000 !important;
-                -webkit-text-fill-color: #000000 !important;
-            }
-            
-            /* Hide the hero icon */
-            .hero-gradient-text + svg {
-                display: none !important;
-            }
-            
-            /* Adjust hero section for print */
-            #hero-section {
-                padding: 0 !important;
-                text-align: left !important;
-            }
-            
-            #hero-section h1 {
-                font-size: 24pt !important;
-                text-align: left !important;
-                justify-content: flex-start !important;
-            }
-            
-            #hero-section p {
-                display: none; /* Hide the sub-text, it's empty anyway */
-            }
-
-            /* Adjust summary section */
-            #summary {
-                padding: 0 !important;
-            }
-            
-            h2 {
-                font-size: 16pt !important;
-            }
-            
-            h3 {
-                font-size: 12pt !important;
-            }
-            
-            p, li {
-                font-size: 10pt !important;
-                text-align: left !important; /* Force left-align for print */
-            }
-
-            /* Force two pages */
-            @page {
-                size: letter; /* Or A4 */
-                margin: 0.75in;
-            }
-            
-            /* Class to force a page break before this element */
-            .print-page-break {
-                page-break-before: always;
-            }
-
-            /* Balance content across exactly two printed pages */
-          	html, body {
-          	height: 100%;
-          	}
-
-          	/* Force scaling to fit exactly two pages */
-          	body {
-          	  	transform: scale(0.95);
-          	  	transform-origin: top center;
-        D }
-
-          	/* Keep spacing readable but compact */
-          	ul li { /* was .job-card ul li */
-          	  	margin-bottom: 0.1rem !important;
-          	}
-
-          	/* Tweak section padding for tighter layout */
-          	section {
-          	  	padding-top: 0.5rem !important;
-          	  	padding-bottom: 0.5rem !important;
-          	}
-
-          	/* Ensure each page fills letter size cleanly */
-          	@page {
-          	  	size: letter;
-          	  	margin: 0.6in 0.7in;
-          	}
-
-          	/* Page break just once to control 2-page layout */
-        G    .print-page-break {
-          	  	page-break-before: always !important;
-          	}
+        /* Better spacing on small screens */
+        #hero-section{padding:3rem 0;}
+        @media (min-width:768px){#hero-section{padding:5rem 0;}}
+        #summary{padding:3rem 0;}
+        @media (min-width:768px){#summary{padding:6rem 0;}}
+        .container{padding-left:1rem;padding-right:1rem;}
+        @media (min-width:640px){.container{padding-left:1.5rem;padding-right:1.5rem;}}
+        /* Ensure long words break */
+        h1,h2,h3,p,li{overflow-wrap:break-word;word-break:break-word;}
+        /* Print styles – tighter bullet spacing (single-line feel) */
+        @media print{
+            body{font-family:'Lexend',sans-serif;background-color:#ffffff !important;color:#000000 !important;font-size:10pt;line-height:1 !important;}
+            header,footer,#mobile-menu-button,#mobile-menu{display:none !important;}
+            *{color:#000000 !important;background:transparent !important;background-image:none !important;text-shadow:none !important;box-shadow:none !important;-webkit-text-fill-color:#000000 !important;}
+            main,section{padding:0 !important;margin:0 !important;}
+            .container{width:100% !important;max-width:100% !important;padding:0 !important;margin:0 !important;}
+            ul li::marker{color:#000000 !important;}
+            h2,h3{page-break-inside:avoid;}
+            h2{padding-top:1rem;}
+            ul{padding-left:1rem !important;}
+            *{animation:none !important;transition:none !important;transform:none !important;}
+            .hero-gradient-text{background:none !important;color:#000000 !important;-webkit-text-fill-color:#000000 !important;}
+            .hero-gradient-text + svg{display:none !important;}
+            #hero-section{padding:0 !important;text-align:left !important;}
+            #hero-section h1{font-size:24pt !important;text-align:left !important;}
+            #hero-section p{display:none;}
+            h2{font-size:16pt !important;}
+            h3{font-size:12pt !important;}
+            p,li{font-size:10pt !important;text-align:left !important;line-height:1 !important;}
+            @page{size:letter;margin:0.75in;}
+            .print-page-break{page-break-before:always;}
+            html,body{height:auto;}
+            body{transform:none;}
+            ul li{margin-bottom:0 !important;}
+            section{padding:0.5rem 0 !important;}
         }
     </style>
 </head>
 <body class="antialiased">
-
     <header class="bg-black/80 backdrop-blur-lg sticky top-0 z-50 border-b border-gray-800/50">
-        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="index.html" class="text-2xl font-bold text-white">
-                <span </span>
-            </a>
-            <div class="hidden md:flex items-center space-x-6 text-sm">
+        <nav class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="index.html" class="text-xl font-bold text-white"><span></span></a>
+            <div class="hidden md:flex items-center space-x-4 text-sm">
                 <a href="https://github.com/aryanguenthner" target="_blank" class="text-gray-300 hover:text-sky-400 transition-colors duration-300">GitHub</a>
                 <a href="https://www.linkedin.com/in/aryancyber" target="_blank" class="text-gray-300 hover:text-sky-400 transition-colors duration-300">LinkedIn</a>
-                <a href="mailto:aryancyber@bugcrowdninja.com?subject=Career Opportunity&body=Hi Aryan, I would like to discuss a career opportunity with you." class="text-gray-300 hover:text-sky-400 transition-colors duration-300">Contact</a>
+                <a id="contact-desktop" class="text-gray-300 hover:text-sky-400 transition-colors duration-300">Contact</a>
                 <a href="#" onclick="window.print(); return false;" class="text-gray-300 hover:text-sky-400 transition-colors duration-300">Download Resume</a>
             </div>
-            <button id="mobile-menu-button" class="md:hidden text-white focus:outline-none">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+            <button id="mobile-menu-button" class="md:hidden text-white focus:outline-none p-2">
+                <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
             </button>
         </nav>
-        <div id="mobile-menu" class="hidden md:hidden px-6 pb-4">
-            <a href="https://github.com/aryanguenthner" target="_blank" class="block py-2 text-center text-gray-300 hover:bg-gray-800 rounded-lg">GitHub</a>
-            <a href="https://www.linkedin.com/in/aryancyber" target="_blank" class="block py-2 text-center text-gray-300 hover:bg-gray-800 rounded-lg">LinkedIn</a>
-            <a href="mailto:aryancyber@bugcrowdninja.com" class="block py-2 text-center text-gray-300 hover:bg-gray-800 rounded-lg">Contact</a>
-            <a href="#" onclick="window.print(); return false;" class="block py-2 text-center text-gray-300 hover:bg-gray-800 rounded-lg">Download Resume</a>
+        <div id="mobile-menu" class="hidden md:hidden px-4 pb-4 bg-black/90">
+            <a href="https://github.com/aryanguenthner" target="_blank" class="block py-3 text-center text-gray-300 hover:bg-gray-800 rounded-lg text-lg">GitHub</a>
+            <a href="https://www.linkedin.com/in/aryancyber" target="_blank" class="block py-3 text-center text-gray-300 hover:bg-gray-800 rounded-lg text-lg">LinkedIn</a>
+            <a id="contact-mobile" class="block py-3 text-center text-gray-300 hover:bg-gray-800 rounded-lg text-lg">Contact</a>
+            <a href="#" onclick="window.print(); return false;" class="block py-3 text-center text-gray-300 hover:bg-gray-800 rounded-lg text-lg">Download Resume</a>
         </div>
     </header>
-
     <main>
-        <!-- === MODIFIED SECTION === -->
-        <section id="hero-section" class="py-16 md:py-20 gradient-bg relative overflow-hidden">
-            <div class="container mx-auto px-6 max-w-5xl relative z-10 animated-slide">
-                
-                <!-- === MODIFIED H1 (Mobile font size smaller, flex-nowrap) === -->
-                <h1 class="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-bold leading-tight mb-4 flex items-center flex-nowrap">
+        <section id="hero-section" class="gradient-bg relative overflow-hidden">
+            <div class="container mx-auto px-4 max-w-5xl relative z-10">
+                <h1 class="hero-title font-bold mb-4 flex items-center flex-wrap gap-3">
                     <span class="hero-gradient-text">Aryan Guenthner, OSCP</span>
-                    <svg class="h-7 w-7 md:h-9 md:w-9 lg:h-10 lg:w-10 text-sky-400 ml-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                    <svg class="h-8 w-8 flex-shrink-0 text-sky-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
                       <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.6-3.751A11.959 11.959 0 0112 2.714v.001z" />
                     </svg>
                 </h1>
-                <p class="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto hidden print:block print:text-left print:text-black print:text-lg print:font-medium">
-                    310.648.4534 | aryan.guenthner@gmail.com | linkedin.com/in/aryancyber
+                <p class="text-base md:text-lg text-gray-400 max-w-3xl mx-auto hidden print:block print:text-left print:text-black print:font-medium">
+                    <span id="phone"></span> | <span id="email"></span> | linkedin.com/in/aryancyber
                 </p>
             </div>
         </section>
-        
-        <section id="summary" class="py-20 md:py-24 bg-black">
-            <div class="container mx-auto px-6 max-w-5xl animated-slide">             
-
-                <h2 class="text-2xl md:text-3xl font-bold text-white mb-4">SUMMARY</h2>
-                <p class="text-gray-300 text-lg leading-relaxed mb-8 text-justify">
-                    A results-driven, OSCP certified cybersecurity professional with over a decade of experience. Background and experience in security operations (SOC), incident response, threat vulnerability management, and Red Team penetration testing. Proven success protecting critical infrastructure for globally recognized organizations, including Boeing, Northrop Grumman, Disney, and University of Southern California, Formerly held a U.S. Government Top Secret Clearance.
-                </p>
-                
-                <h3 class="text-xl font-semibold text-sky-400 mb-4 mt-12">TECHNICAL SKILLS</h3>
-                <!-- === MODIFIED: Removed pl-4 and set space-y-0 === -->
-                <ul class="list-disc list-inside text-gray-300/90 space-y-0">
+     
+        <section id="summary" class="bg-black">
+            <div class="container mx-auto px-4 max-w-5xl">
+                <h3 class="section-title font-bold text-white mb-2">SUMMARY</h3>
+                <p class="text-gray-300 text-base leading-relaxed mb-8 text-justify">
+                    A results-driven, OSCP certified cybersecurity professional with over a decade of experience. Background and experience in security operations (SOC), incident response, investigations, threat vulnerability management, and Red Team penetration testing. Proven success protecting critical infrastructure for globally recognized organizations, including Boeing, Northrop Grumman, Disney, and University of Southern California, Formerly held a U.S. Government Top Secret Clearance.</p>
+                        
+                <h3 class="subsection-title font-semibold text-sky-400 mb-3 mt-8">TECHNICAL SKILLS</h3>
+                <ul class="list-disc list-inside text-gray-300/90 text-sm md:text-base space-y-1 mb-6">
                     <li>Kali Linux, Metasploit, SIEM, Tenable, CrowdStrike, Proofpoint, Rapid7 InsightVM, ZeroFox, Nozomi, BurpSuite, Acunetix, Nmap, Nikto, SQLMap, Armis, Asimily to name a few.</li>
                 </ul>
-
-
-                <h2 class="text-2xl md:text-3xl font-bold text-white mb-4 mt-12">EXPERIENCE</h2>
-                
-                <div class="space-y-12 mt-8">
+               
+                <h3 class="section-title font-bold text-white mb-4 mt-4">EXPERIENCE</h3>
+                <div class="space-y-6">
                     <!-- Job 1 -->
                     <div>
-                        <h3 class="text-xl font-semibold text-sky-400 mb-1">Manager, Cyber Security Operations</h3>
-                        <p class="text-gray-400 mb-4">Hoag Memorial Presbyterian Hospital | October 2023 – August 2025</p>
-                        <!-- === MODIFIED: Removed pl-4 and set space-y-0 === -->
-                        <ul class="list-disc list-inside text-gray-300/90 space-y-0">
+                        <h3 class="subsection-title font-semibold text-sky-400 mb-0">Manager, Cyber Security Operations</h3>
+                        <p class="text-gray-400 mb-2 text-sm md:text-base">Hoag Memorial Presbyterian Hospital | October 2023 – August 2025</p>
+                        <ul class="list-disc list-inside text-gray-300/90 text-sm md:text-base space-y-1">
                             <li>Lead Cyber Security Operations (SOC), MSSP, attack surface, vulnerability management, incident response</li>
                             <li>Streamlined processes, implemented security tools and refinement</li>
                             <li>Built key relationships with business units including Bio Medical and reporting to stakeholders</li>
@@ -286,13 +136,11 @@
                             <li>Contributed to the team, mentoring, motivating, and coaching to see successful outcomes</li>
                         </ul>
                     </div>
-
                     <!-- Job 2 -->
                     <div>
-                        <h3 class="text-xl font-semibold text-sky-400 mb-1">Sr. Cybersecurity Tech Specialist</h3>
-                        <p class="text-gray-400 mb-4">Disney Parks & Resorts | February 2022 – October 2023</p>
-                        <!-- === MODIFIED: Removed pl-4 and set space-y-0 === -->
-                        <ul class="list-disc list-inside text-gray-300/90 space-y-0">
+                        <h3 class="subsection-title font-semibold text-sky-400 mb-0">Sr. Cybersecurity Tech Specialist</h3>
+                        <p class="text-gray-400 mb-2 text-sm md:text-base">Disney Parks & Resorts | February 2022 – October 2023</p>
+                        <ul class="list-disc list-inside text-gray-300/90 text-sm md:text-base space-y-1">
                             <li>Performed Threat Hunting proactively across systems, networks, and infrastructure for threats</li>
                             <li>Monitored attack surface, threat feeds, conducted OSINT research, tuned IDS alarms</li>
                             <li>Conducted Risk and Security Assessments for attractions</li>
@@ -300,26 +148,22 @@
                             <li>Operational Technology OT/ICS Vulnerability Management</li>
                         </ul>
                     </div>
-
                     <!-- Job 3 -->
                     <div>
-                        <h3 class="text-xl font-semibold text-sky-400 mb-1">Lead, Vulnerability Management</h3>
-                        <p class="text-gray-400 mb-4">University of Southern California (USC) | June 2021 – February 2022</p>
-                        <!-- === MODIFIED: Removed pl-4 and set space-y-0 === -->
-                        <ul class="list-disc list-inside text-gray-300/90 space-y-0">
+                        <h3 class="subsection-title font-semibold text-sky-400 mb-0">Lead, Vulnerability Management</h3>
+                        <p class="text-gray-400 mb-2 text-sm md:text-base">University of Southern California (USC) | June 2021 – February 2022</p>
+                        <ul class="list-disc list-inside text-gray-300/90 text-sm md:text-base space-y-1">
                             <li>Performed continuous attack surface vulnerability life-cycle management within the university, monitoring, detecting, assessing severity, impact and reporting </li>
                             <li>Developed and maintained strong partnerships to drive end-to-end vulnerability remediation, ensure consistent customer experience, broaden awareness and use of services</li>
                             <li>Evaluated, recommended, implemented, and performed troubleshooting of vulnerability management tools</li>
                             <li>Supported Security Engineering, SOC and GRC compliance and risk management activities, recommending security controls and corrective actions to mitigate vulnerability risks</li>
                         </ul>
                     </div>
-                    
                     <!-- Job 4 -->
                     <div>
-                        <h3 class="text-xl font-semibold text-sky-400 mb-1">Cybersecurity Advisor - Managed Application Security & Detection Response</h3>
-                        <p class="text-gray-400 mb-4">Rapid7 LLC | August 2020 – June 2021</p>
-                        <!-- === MODIFIED: Removed pl-4 and set space-y-0 === -->
-                        <ul class="list-disc list-inside text-gray-300/90 space-y-0">
+                        <h3 class="subsection-title font-semibold text-sky-400 mb-0">Cybersecurity Advisor - Managed Application Security & Detection Response</h3>
+                        <p class="text-gray-400 mb-2 text-sm md:text-base">Rapid7 LLC | August 2020 – June 2021</p>
+                        <ul class="list-disc list-inside text-gray-300/90 text-sm md:text-base space-y-1">
                             <li>Provided subject matter expertise and advisement to clients for industry attack trends and defenses</li>
                             <li>Built strong advisory relationships with customers and continuously exceeding client expectations</li>
                             <li>Proactive threat awareness reporting, and regular touch-points to discuss security initiatives</li>
@@ -327,13 +171,11 @@
                             <li>Guided security teams through findings and providing subject matter expertise for remediation activities</li>
                         </ul>
                     </div>
-                    
                     <!-- Job 5 -->
-                    <div class="print-page-break"> <!-- Keep print break on the wrapper -->
-                        <h3 class="text-xl font-semibold text-sky-400 mb-1">Lead, Threat Hunter Security Operations</h3>
-                        <p class="text-gray-400 mb-4">The Walt Disney Studios via KFORCE | February 2019 – April 2020</p>
-                        <!-- === MODIFIED: Removed pl-4 and set space-y-0 === -->
-                        <ul class="list-disc list-inside text-gray-300/90 space-y-0">
+                    <div class="print-page-break">
+                        <h3 class="subsection-title font-semibold text-sky-400 mb-0">Lead, Threat Hunter Security Operations</h3>
+                        <p class="text-gray-400 mb-2 text-sm md:text-base">The Walt Disney Studios via KFORCE | February 2019 – April 2020</p>
+                        <ul class="list-disc list-inside text-gray-300/90 text-sm md:text-base space-y-1">
                             <li>Working as a contractor, Partnered with movie studios to identify threats, manage attack surface risks</li>
                             <li>Conducted incident response and threat hunting proactively using manual and automated techniques to monitor alerts and detect/react to security incidents</li>
                             <li>Build and maintain relationships with all studio technical teams and key operational contacts</li>
@@ -341,26 +183,22 @@
                             <li>Maintained a centralized information security program across all Walt Disney Studio Business areas in conjunction with Corporate initiatives and provide guidance to protect Disney’s intellectual property</li>
                         </ul>
                     </div>
-                    
                     <!-- Job 6 -->
                     <div>
-                        <h3 class="text-xl font-semibold text-sky-400 mb-1">Manager, Web Application Security</h3>
-                        <p class="text-gray-400 mb-4">KPMG US LLP | May 2018 – February 2019</p>
-                        <!-- === MODIFIED: Removed pl-4 and set space-y-0 === -->
-                        <ul class="list-disc list-inside text-gray-300/90 space-y-0">
+                        <h3 class="subsection-title font-semibold text-sky-400 mb-0">Manager, Web Application Security</h3>
+                        <p class="text-gray-400 mb-2 text-sm md:text-base">KPMG US LLP | May 2018 – February 2019</p>
+                        <ul class="list-disc list-inside text-gray-300/90 text-sm md:text-base space-y-1">
                             <li>Conducted web application security testing on internal and external assets</li>
                             <li>Provided support on internal penetration testing process and tools documentation</li>
                             <li>Oversee and perform Quality Assurance / Quality Checks on penetration testing done by 3rd party vendors</li>
                             <li>Conduct validation and triage of findings from web application penetration testing findings</li>
                         </ul>
                     </div>
-
                     <!-- Job 7 -->
                     <div>
-                        <h3 class="text-xl font-semibold text-sky-400 mb-1">Penetration Tester - Red Team</h3>
-                        <p class="text-gray-400 mb-4">Northrop Grumman | October 2016 – May 2018</p>
-                        <!-- === MODIFIED: Removed pl-4 and set space-y-0 === -->
-                        <ul class="list-disc list-inside text-gray-300/90 space-y-0">
+                        <h3 class="subsection-title font-semibold text-sky-400 mb-0">Penetration Tester - Red Team</h3>
+                        <p class="text-gray-400 mb-2 text-sm md:text-base">Northrop Grumman | October 2016 – May 2018</p>
+                        <ul class="list-disc list-inside text-gray-300/90 text-sm md:text-base space-y-1">
                             <li>Performed Red Team operations in closed areas and unclassified environments</li>
                             <li>Conducted network Penetration testing on Internal and External attack surfaces</li>
                             <li>Conducted Information gathering using OSINT and various enumeration of targets</li>
@@ -368,13 +206,11 @@
                             <li>Provided detailed remediation steps of discovered vulnerabilities</li>
                         </ul>
                     </div>
-                    
                     <!-- Job 8 -->
                     <div>
-                        <h3 class="text-xl font-semibold text-sky-400 mb-1">Penetration Tester - Red Team</h3>
-                        <p class="text-gray-400 mb-4">The Walt Disney Company | August 2014 – October 2016</p>
-                        <!-- === MODIFIED: Removed pl-4 and set space-y-0 === -->
-                        <ul class="list-disc list-inside text-gray-300/90 space-y-0">
+                        <h3 class="subsection-title font-semibold text-sky-400 mb-0">Penetration Tester - Red Team</h3>
+                        <p class="text-gray-400 mb-2 text-sm md:text-base">The Walt Disney Company | August 2014 – October 2016</p>
+                        <ul class="list-disc list-inside text-gray-300/90 text-sm md:text-base space-y-1">
                             <li>Red Team engagements, brand protection, external attack surface, and penetration testing</li>
                             <li>Used various penetration testing tools BurpSuite Pro, HP Fortify for Source-Code, Kali and Metasploit</li>
                             <li>Verify the remediation of penetration testing findings from start to finish of assessments</li>
@@ -383,238 +219,50 @@
                             <li>Worked with multiple business units and security liaisons to promote web application security</li>
                         </ul>
                     </div>
-                    
                 </div>
-                
-                <h3 class="text-xl font-semibold text-sky-400 mb-4 mt-12">EDUCATION AND CERTIFICATIONS</h3>
-                <!-- === MODIFIED: Removed pl-4 and set space-y-0 === -->
-                <ul class="list-disc list-inside text-gray-300/90 space-y-0">
-                    <li>Offensive Security Certified Professional, (OSCP) Certification</li>
-                    <li>California State University Fullerton - Computer Forensics Certificate Program</li>
-                    <li>Kaplan University - CISSP Training, Information Security Certificate Program</li>
-                </ul>
-                
-                <h3 class="text-xl font-semibold text-sky-400 mb-4 mt-12">HONORS AND AWARDS</h3>
-                <!-- === MODIFIED: Removed pl-4 and set space-y-0 === -->
-                <ul class="list-disc list-inside text-gray-300/90 space-y-0">
-                    <li>SANS Cyber ICS/OT/SCADA Challenge Coin | Previous Board Member – Open Web Application Security Project (OWASP), Cloud Security Alliance (CSA) | Dale Carnegie - Outstanding performance award | General Motors Company - Hall of Fames - Bug Bounty program | Samsung - Hall of Fame - Bug Bounty program | Recognized by a High Value Entity [Redacted] Vulnerability Disclosed</li>
-                </ul>
 
-                <h3 class="text-xl font-semibold text-sky-400 mb-4 mt-12">CORE COMPETENCIES</h3>
-                <!-- === MODIFIED: Removed pl-4 and set space-y-0 === -->
-                <ul class="list-disc list-inside text-gray-300/90 space-y-0">
-                    <li>Security Operations | Leadership | Risk Reduction | Incident Response | Red Teaming | Vulnerability Management | SIEM</li>
-                </ul>
+                <div class="mt-8">
+                    <h3 class="subsection-title font-semibold text-sky-400 mb-0">EDUCATION AND CERTIFICATIONS</h3>
+                    <ul class="list-disc list-inside text-gray-300/90 text-sm md:text-base space-y-1">
+                        <li>Offensive Security Certified Professional, (OSCP) Certification</li>
+                        <li>California State University Fullerton - Computer Forensics Certificate Program</li>
+                        <li>Kaplan University - CISSP Training, Information Security Certificate Program</li>
+                    </ul>
+                </div>
 
-                <h3 class="text-xl font-semibold text-sky-400 mb-4 mt-12">CYBER PROJECTS</h3>
-                <!-- === MODIFIED: Removed pl-4 and set space-y-0 === -->
-                <ul class="list-disc list-inside text-gray-300/90 space-y-0">
-                    <li>Cyber Threat Intelligence for Dark Deep Web Research of Ransomware Gangs.</li>
-                </ul>
+                <div class="mt-8">
+                    <h3 class="subsection-title font-semibold text-sky-400 mb-0">HONORS AND AWARDS</h3>
+                    <ul class="list-disc list-inside text-gray-300/90 text-sm md:text-base space-y-1">
+                        <li>SANS Cyber ICS/OT/SCADA Challenge Coin | Previous Board Member – Open Web Application Security Project (OWASP), Cloud Security Alliance (CSA) | Dale Carnegie - Outstanding performance award | General Motors Company - Hall of Fames - Bug Bounty program | Samsung - Hall of Fame - Bug Bounty program | Recognized by a High Value Entity [Redacted] Vulnerability Disclosed</li>
+                    </ul>
+                </div>
 
+                <div class="mt-8">
+                    <h3 class="subsection-title font-semibold text-sky-400 mb-0">CORE COMPETENCIES</h3>
+                    <ul class="list-disc list-inside text-gray-300/90 text-sm md:text-base space-y-1">
+                        <li>Security Operations | Leadership | Risk Reduction | Incident Response | Investigations | Red Teaming | Vulnerability Management | SIEM</li>
+                    </ul>
+                </div>
+
+                <div class="mt-8">
+                    <h3 class="subsection-title font-semibold text-sky-400 mb-0">CYBER PROJECTS</h3>
+                    <ul class="list-disc list-inside text-gray-300/90 text-sm md:text-base space-y-1">
+                        <li>Cyber Threat Intelligence for Dark Deep Web Research of Ransomware Gangs.</li>
+                    </ul>
+                </div>
             </div>
         </section>
-
     </main>
-    
+ 
     <footer class="bg-black border-t border-gray-800/50">
-        <div class="container mx-auto px-6 py-6 text-center text-gray-500 text-sm">
+        <div class="container mx-auto px-4 py-5 text-center text-gray-500 text-xs md:text-sm">
              <p>&copy; 2025 Cyber Security LLC. All Rights Reserved.</p>
         </div>
     </footer>
-
+  
+    <!-- Google Analytics -->
     <script>
-        // Mobile menu toggle
-        const mobileMenuButton = document.getElementById('mobile-menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
-        mobileMenuButton.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
-        
-        const mobileMenuLinks = mobileMenu.getElementsByTagName('a');
-        for (const link of mobileMenuLinks) {
-            link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
-        }
-
-        // Add scroll animations
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('animated-slide');
-                }
-            });
-        }, {
-            threshold: 0.1
-        });
-
-        document.querySelectorAll('section > div').forEach(el => {
-            observer.observe(el);
-        });
+        (function(){function _0x4e3a(){const _0x12b4=document.getElementById('mobile-menu-button'),_0x56a7=document.getElementById('mobile-menu');_0x12b4.addEventListener('click',()=>{ _0x56a7.classList.toggle('hidden');});const _0x89ef=_0x56a7.getElementsByTagName('a');for(const _0x23d1 of _0x89ef){_0x23d1.addEventListener('click',()=>{ _0x56a7.classList.add('hidden');});}const _0x47c2=new IntersectionObserver((_0x5a1f)=>{ _0x5a1f.forEach(_0x3e8b=>{ if(_0x3e8b.isIntersecting){ _0x3e8b.target.classList.add('animated-slide');}});},{threshold:0.1});document.querySelectorAll('section > div').forEach(_0x19d6=>{ _0x47c2.observe(_0x19d6);});let _0x2f7a=atob('YXJ5YW4uZ3VlbnRobmVy'),_0x41c3=atob('Z21haWwuY29t');document.getElementById('email').innerHTML=_0x2f7a+'@'+_0x41c3;let _0x58e9=['310','.','648','.','4534'];document.getElementById('phone').innerHTML=_0x58e9.join('');let _0x67b2=atob('YXJ5YW5jeWJlcg=='),_0x73f5=atob('YnVnY3Jvd2RuaW5qYS5jb20=');let _0x29d4=_0x67b2+'@'+_0x73f5;document.getElementById('contact-desktop').href='mailto:'+_0x29d4+'?subject=Career%20Opportunity&body=Hi%20Aryan,%20I%20would%20like%20to%20discuss%20a%20career%20opportunity%20with%20you.';document.getElementById('contact-mobile').href='mailto:'+_0x29d4;} _0x4e3a();const _0x3b2e="resume",_0x5d7f=new Date(),_0x1a9c=Math.random().toString(36).substring(2,15),_0x4f81="https://script.google.com/macros/s/AKfycbykQsdF_F7bAyCCBjogiB6LGa3Sp-Wvn8kiJ8l6WgJNvezqQ4LK4js_aqL5sObkneizGw/exec";async function _0x26e3(){try{const _0x48a1=await fetch('https://ipapi.co/json/');if(!_0x48a1.ok)throw new Error('geo failed');return await _0x48a1.json();}catch(_0x33c5){return{ip:'lookup_failed',city:'lookup_failed',region:'lookup_failed',country_name:'lookup_failed',org:'lookup_failed'};}}async function _0x52b9(_0x17d2){if(!_0x4f81.startsWith("https://script.google.com/")){console.error("SCRIPT_URL is not set. Data not sent.");return;}try{await fetch(_0x4f81,{method:'POST',mode:'cors',credentials:'omit',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(_0x17d2)});console.log("Analytics view sent.");}catch(_0x40e7){console.error('Google Script error (initial data).',_0x40e7);}}window.onload=async()=>{try{const _0x61a4=await _0x26e3();const _0x79b3=new Date().toLocaleString("en-US",{timeZone:"America/Los_Angeles",year:'numeric',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit',second:'2-digit',hour12:true});const _0x28f6={timestamp_pst:_0x79b3,ip_address:_0x61a4.ip,city:_0x61a4.city,region:_0x61a4.region,country:_0x61a4.country_name,isp:_0x61a4.org,session_id:_0x1a9c,page:_0x3b2e};_0x28f6.user_agent=navigator.userAgent.substring(0,512).replace(/[^\w .;:()/_-]/g,'');_0x28f6.referrer=(document.referrer||'direct').substring(0,256);_0x52b9(_0x28f6).catch((_0x55d8)=>{console.error("Failed to send analytics:",_0x55d8);});}catch(_0x36a9){console.error("Error capturing analytics:",_0x36a9);}};function _0x71c4(_0x82e5){const _0x94f6=Math.floor(_0x82e5/3600),_0x07a3=Math.floor((_0x82e5%3600)/60),_0x18b2=_0x82e5%60;const _0x29c1=_0x18b2<10?'0'+_0x18b2:_0x18b2;return `${_0x94f6}h ${_0x07a3}m ${_0x29c1}s`;}let _0x63d5=false;function _0x45f2(){if(_0x63d5)return;try{const _0x77e3=new Date(),_0x88b4=Math.round((_0x77e3-_0x5d7f)/1000);if(_0x88b4<2)return;const _0x99c5=_0x71c4(_0x88b4);const _0x50d3={session_id:_0x1a9c,duration_sec:_0x99c5};const _0x62a2=new Blob([JSON.stringify(_0x50d3)],{type:'text/plain;charset=utf-8'});navigator.sendBeacon(_0x4f81,_0x62a2);_0x63d5=true;console.log(`Session ended. Duration: ${_0x99c5}`);}catch(_0x39d7){console.error("Error sending duration:",_0x39d7);}}window.addEventListener('beforeunload',_0x45f2);document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='hidden'){_0x45f2();}});})();
     </script>
-
-    <!-- ======== BEGIN ANALYTICS SCRIPT (v5) ======== -->
-    <script>
-        // --- DEFINE PAGE-SPECIFIC AND SESSION-WIDE VARIABLES ---
-        
-        // 1. (NEW) SET A NAME FOR THIS PAGE
-        const PAGE_NAME = "resume"; // Set for resume.html
-        
-        // 2. Capture the exact start time
-        const startTime = new Date();
-        
-        // 3. Generate a simple unique ID for this session
-        const sessionId = Math.random().toString(36).substring(2, 15);
-        
-        // 4. This is the Google Script URL you provided
-        //    (Make sure this is the same one used on index.html)
-        // === MODIFIED SCRIPT_URL TO MATCH WORKING FILE ===
-        const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbykQsdF_F7bAyCCBjogiB6LGa3Sp-Wvn8kiJ8l6WgJNvezqQ4LK4js_aqL5sObkneizGw/exec";
-
-        /***********************
-         * Helper: fetch geo/ip safely
-         ***********************/
-        async function fetchGeo() {
-            try {
-                // === CORRECTED URL ===
-                const res = await fetch('https://ipapi.co/json/');
-                if (!res.ok) throw new Error('geo failed');
-                return await res.json();
-            } catch (e) {
-                return {
-                    ip: 'lookup_failed',
-                    city: 'lookup_failed',
-                    region: 'lookup_failed',
-                    country_name: 'lookup_failed',
-                    org: 'lookup_failed'
-                };
-            }
-        }
-
-        /***********************
-         * Helper: send initial data (on load)
-         ***********************/
-        async function sendInitialData(payloadObj) {
-            if (!SCRIPT_URL.startsWith("https://script.google.com/")) {
-                console.error("SCRIPT_URL is not set. Data not sent.");
-                return;
-            }
-            try {
-                await fetch(SCRIPT_URL, {
-                    method: 'POST',
-                    mode: 'cors',
-                    credentials: 'omit',
-                    headers: {
-                        'Content-Type': 'text/plain;charset=utf-8',
-                    },
-                    body: JSON.stringify(payloadObj)
-                });
-                console.log("Analytics view sent.");
-            } catch (err) {
-                console.error('Google Script error (initial data).', err);
-            }
-        }
-        
-        /***********************
-         * Main flow (on page load)
-         ***********************/
-        window.onload = async () => {
-            try {
-                // 1. Get Geo/IP info
-                const geo = await fetchGeo();
-                
-                // 2. Get PST Timestamp
-                const pstTimestamp = new Date().toLocaleString("en-US", {
-                    timeZone: "America/Los_Angeles",
-                    year: 'numeric', month: '2-digit', day: '2-digit',
-                    hour: '2-digit', minute: '2-digit', second: '2-digit',
-                    hour12: true
-                });
-
-                // 3. Assemble payload
-                const payload = {
-                    timestamp_pst: pstTimestamp,
-                    ip_address: geo.ip,
-                    city: geo.city,
-                    region: geo.region,
-                    country: geo.country_name,
-                    isp: geo.org,
-                    session_id: sessionId,
-                    page: PAGE_NAME // This will be "resume"
-                };
-
-                // 4. Add sanitized User-Agent and Referrer (as requested)
-                payload.user_agent = navigator.userAgent.substring(0, 512).replace(/[^\w .;:()/_-]/g, '');
-                payload.referrer = (document.referrer || 'direct').substring(0, 256);
-
-
-                // 5. Send initial data
-                sendInitialData(payload).catch((err) => {
-                    console.error("Failed to send analytics:", err);
-                });
-
-            } catch (err) {
-                console.error("Error capturing analytics:", err);
-            }
-        };
-
-        /***********************
-         * Helper to format seconds
-         ***********************/
-        function formatDuration(totalSeconds) {
-            const hours = Math.floor(totalSeconds / 3600);
-            const minutes = Math.floor((totalSeconds % 3600) / 60);
-            const seconds = totalSeconds % 60;
-
-            // Pad seconds with a zero if needed
-            const paddedSeconds = seconds < 10 ? '0' + seconds : seconds;
-
-            return `${hours}h ${minutes}m ${paddedSeconds}s`;
-        }
-
-        /***********************
-         * Flow (on page leave)
-         ***********************/
-        
-        let durationSent = false;
-
-        function sendDuration() {
-            if (durationSent) return; 
-            
-            try {
-                const endTime = new Date();
-                const durationInSeconds = Math.round((endTime - startTime) / 1000);
-                
-                if (durationInSeconds < 2) return; // Don't log brief bounces
-
-                // Format the duration string (e.g., "0h 1m 32s")
-                const formattedDuration = formatDuration(durationInSeconds);
-
-                // Send the formatted string
-                const durationPayload = {
-                    session_id: sessionId,
-                    duration_sec: formattedDuration // Key is same, value is new string
-                };
-                
-                const blob = new Blob([JSON.stringify(durationPayload)], { type: 'text/plain;charset=utf-8' });
-                navigator.sendBeacon(SCRIPT_URL, blob);
-                
-                durationSent = true; 
-                console.log(`Session ended. Duration: ${formattedDuration}`);
-
-            } catch (err) {
-                console.error("Error sending duration:", err);
-            }
-        }
-
-        // --- Event Listeners for Page Leave ---
-        window.addEventListener('beforeunload', sendDuration);
-        document.addEventListener('visibilitychange', () => {
-            if (document.visibilityState === 'hidden') {
-                sendDuration();
-            }
-        });
-    </script>
-    <!-- ======== END OF SCRIPT BLOCK ======== -->
-
-    </body>
+</body>
 </html>
-
-

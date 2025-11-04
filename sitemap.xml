@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://aryanguenthner.github.io/schemas/sitemap/0.9">
+
+    <url>
+        <loc>https://aryanguenthner.github.io/resume.html</loc>
+        <lastmod>2025-11-03</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>1.0</priority>
+    </url>
+
+    <!-- 1. Database and Admin Access Attempts -->
+    <url>
+        <loc>https://aryanguenthner.github.io/wp-admin/db-backup-tool</loc>
+        <lastmod>2025-11-03</lastmod>
+        <changefreq>never</changefreq>
+        <priority>0.1</priority>
+    </url>
+    <url>
+        <loc>https://aryanguenthner.github.io/admin/management/user_data</loc>
+        <lastmod>2025-11-03</lastmod>
+        <changefreq>never</changefreq>
+        <priority>0.1</priority>
+    </url>
+
+    <!-- 2. Configuration and Log File Exposure -->
+    <url>
+        <loc>https://aryanguenthner.github.io/logs/system_errors</loc>
+        <lastmod>2025-11-03</lastmod>
+        <changefreq>never</changefreq>
+        <priority>0.1</priority>
+    </url>
+    <url>
+        <loc>https://aryanguenthner.github.io/config/credentials</loc>
+        <lastmod>2025-11-03</lastmod>
+        <changefreq>never</changefreq>
+        <priority>0.1</priority>
+    </url>
+
+    <!-- 3. Legacy or Unsecured Development Files -->
+    <url>
+        <loc>https://aryanguenthner.github.io/v1/old_api/unsecured_endpoint</loc>
+        <lastmod>2025-11-03</lastmod>
+        <changefreq>never</changefreq>
+        <priority>0.1</priority>
+    </url>
+    <url>
+        <loc>https://aryanguenthner.github.io/test/dev/sql_db.sql</loc>
+        <lastmod>2025-11-03</lastmod>
+        <changefreq>never</changefreq>
+        <priority>0.1</priority>
+    </url>
+
+    <!-- 4. Rick Roll Honeypots (Clean URLs) -->
+    <url>
+        <loc>https://aryanguenthner.github.io/secure/master_passwordlist.xls</loc>
+        <lastmod>2025-11-03</lastmod>
+        <changefreq>never</changefreq>
+        <priority>0.1</priority>
+    </url>
+    <url>
+        <loc>https://aryanguenthner.github.io/private/employee_pay_stubs.pdf</loc>
+        <lastmod>2025-11-03</lastmod>
+        <changefreq>never</changefreq>
+        <priority>0.1</priority>
+    </url>
+    <url>
+        <loc>https://aryanguenthner.github.io/corporate/vendor_list.xlsx</loc>
+        <lastmod>2025-11-03</lastmod>
+        <changefreq>never</changefreq>
+        <priority>0.1</priority>
+    </url>
+    <url>
+        <loc>https://aryanguenthner.github.io/db/sql_db_master.sql</loc>
+        <lastmod>2025-11-03</lastmod>
+        <changefreq>never</changefreq>
+        <priority>0.1</priority>
+    </url>
+    <url>
+        <loc>https://aryanguenthner.github.io/financial/q4_earnings_report.pdf</loc>
+        <lastmod>2025-11-03</lastmod>
+        <changefreq>never</changefreq>
+        <priority>0.1</priority>
+    </url>
+    <url>
+        <loc>https://aryanguenthner.github.io/customer_database_export.xlsx</loc>
+        <lastmod>2025-11-03</lastmod>
+        <changefreq>never</changefreq>
+        <priority>0.1</priority>
+    </url>
+    <url>
+        <loc>https://aryanguenthner.github.io/private/ceo_email_archive.eml</loc>
+        <lastmod>2025-11-03</lastmod>
+        <changefreq>never</changefreq>
+        <priority>0.1</priority>
+    </url>
+
+</urlset>

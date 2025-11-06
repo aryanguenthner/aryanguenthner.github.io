@@ -1,26 +1,40 @@
 <?php
-// Capture request details
-$ip = $_SERVER['REMOTE_ADDR'];
-$user_agent = $_SERVER['HTTP_USER_AGENT'];
-$time = date('Y-m-d H:i:s T');
-$token = isset($_GET['token']) ? $_GET['token'] : 'unknown';
+$ip         = $_SERVER['REMOTE_ADDR'] ?? 'Unknown';
+$user_agent = $_SERVER['HTTP_USER_AGENT'] ?? 'Unknown';
+$time       = gmdate('Y-m-d H:i:s') . ' UTC';
+$token      = $_GET['token'] ?? 'unknown';
 
-// Fetch geolocation (free API, no key needed)
-$geo_url = "http://ipinfo.io/{$ip}/json";
-$geo_response = @file_get_contents($geo_url);
-$geo_data = json_decode($geo_response, true) ?: [];
-$city = $geo_data['city'] ?? 'Unknown';
-$region = $geo_data['region'] ?? 'Unknown';
-$country = $geo_data['country'] ?? 'Unknown';
+$geo = @json_decode(file_get_contents("http://ipinfo.io/{$ip}/json"), true);
+$city    = $geo['city']   ?? 'Unknown';
+$region  = $geo['region'] ?? 'Unknown';
+$country = $geo['country']?? 'Unknown';
+$org     = $geo['org']    ?? 'Unknown';
 
-// Prepare data payload
 $data = [
-    'time' => $time,
-    'ip' => $ip,
-    'city' => $city,
-    'region' => $region,
-    'country' => $country,
+    'time'       => $time,
+    'ip'         => $ip,
+    'city'       => $city,
+    'region'     => $region,
+    'country'    => $country,
+    'org'        => $org,
     'user_agent' => $user_agent,
-    'token' => $token
+    'token'      => $token
 ];
 $post_data = json_encode($data);
+
+$script_url = 'https://script.google.com/macros/s/AKfycbyj5E9SP3lqJ0oC_rThHMfQrzIz3KUrZTznOM_Gr331nPs0UWClgqtTmE7wDLZIJQ3S/exec';
+
+$context = stream_context_create([
+    'http' => [
+        'method'  => 'POST',
+        'header'  => 'Content-Type: application/json',
+        'content' => $post_data,
+        'timeout' => 10
+    ]
+]);
+@file_get_contents($script_url, false, $context);
+
+header('Content-Type: image/gif');
+header('Content-Length: 35');
+echo base64_decode('R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=');
+?>
